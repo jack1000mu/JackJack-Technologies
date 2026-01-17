@@ -325,3 +325,31 @@ input:focus, select:focus, textarea:focus{border-color: rgba(255,61,127,.45)}
   .nav__menu.is-open{display:flex}
   .dropdown__menu{position:static; display:none; margin-top:6px}
 }
+/* --- Dropdown visibility fix (desktop + mobile) --- */
+select {
+  color: rgba(255,255,255,.92);
+  background-color: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* The dropdown options list (most browsers) */
+select option {
+  color: #111 !important;
+  background-color: #fff !important;
+}
+
+/* Some Android browsers honor optgroup differently */
+select optgroup {
+  color: #111 !important;
+  background-color: #fff !important;
+}
+
+/* iOS/Android sometimes render the selected text too light without this */
+select:focus,
+select:active {
+  color: rgba(255,255,255,.92);
+}
+
