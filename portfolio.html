@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Portfolio | Jack Jack Technologies</title>
+  <meta name="description" content="View my professional portfolio and highlights." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="YOUR_SITE_URL_HERE/portfolio.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="My Portfolio | Jack Jack Technologies" />
+  <meta property="og:description" content="View my work, projects, and highlights." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="YOUR_SITE_URL_HERE/portfolio.html" />
+  <meta property="og:image" content="YOUR_SITE_URL_HERE/assets/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="My Portfolio | Jack Jack Technologies" />
+  <meta name="twitter:description" content="View my work and highlights." />
+  <meta name="twitter:image" content="YOUR_SITE_URL_HERE/assets/og-image.png" />
+
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="header header--simple">
+    <div class="container header__inner">
+      <a class="brand" href="./">
+        <span class="brand__logo" aria-hidden="true">JJ</span>
+        <span class="brand__text">
+          <span class="brand__name">Jack Jack Technologies</span>
+          <span class="brand__tag">Portfolio</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="./">Home</a>
+        <a class="nav__link" href="services.html">Services</a>
+        <a class="nav__link nav__link--active" href="portfolio.html">My Portfolio</a>
+        <button class="btn btn--primary" id="openQuote">Request a Quote</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h1>My Portfolio</h1>
+        <p>View my work, projects, and professional highlights.</p>
+      </div>
+
+      <div class="panel">
+        <h2>Open my portfolio site</h2>
+        <p>Click below to open the portfolio in a new tab.</p>
+        <a class="btn btn--primary" href="https://jack1000mu.github.io/Portfolio/" target="_blank" rel="noopener">
+          Open Portfolio
+        </a>
+        <p class="muted tiny" style="margin-top:10px;">
+          Want a quote instead? Click “Request a Quote” at the top.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted">© <span id="year"></span> Jack Jack Technologies.</div>
+      <a class="muted" href="./">Back to Home</a>
+    </div>
+  </footer>
+
+  <!-- Quote Modal -->
+  <div class="modal" id="quoteModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="true"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="quoteTitle">
+      <div class="modal__head">
+        <h3 id="quoteTitle">Request a Quote</h3>
+        <button class="iconbtn" type="button" aria-label="Close" data-close="true">✕</button>
+      </div>
+
+      <form class="form" id="quoteForm" action="https://formspree.io/f/mojjvwro" method="POST">
+        <div class="form__row">
+          <label>Full Name</label>
+          <input name="name" type="text" required />
+        </div>
+        <div class="form__row">
+          <label>Phone (WhatsApp)</label>
+          <input name="phone" type="tel" required />
+        </div>
+        <div class="form__row">
+          <label>Email (optional)</label>
+          <input name="email" type="email" />
+        </div>
+        <div class="form__row">
+          <label>Service needed</label>
+          <select name="service" id="serviceSelect" required>
+            <option value="" selected disabled>Select a service</option>
+            <option>General Enquiry</option>
+            <option>Online Services</option>
+            <option>SurveyCTO / KoboCollect</option>
+            <option>Basic ICT Skills Short Courses</option>
+          </select>
+        </div>
+        <div class="form__row">
+          <label>Brief details</label>
+          <textarea name="message" rows="4" required></textarea>
+        </div>
+
+        <div class="form__actions">
+          <button class="btn btn--primary" type="submit">Send Request</button>
+          <button class="btn btn--ghost" type="button" data-close="true">Cancel</button>
+        </div>
+
+        <p class="muted tiny">Tip: Provide your email to receive confirmation.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
