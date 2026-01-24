@@ -21,6 +21,9 @@ body{
               linear-gradient(180deg, var(--bg), var(--bg2));
   color: var(--text);
   line-height:1.55;
+  padding-top: 90px;
+}
+
 }
 
 a{color:inherit}
@@ -55,11 +58,18 @@ a{color:inherit}
 
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand__logo{
-  width:auto;height:50px;border-radius:14px;margin-right:10px;
-  background: linear-gradient(135deg, rgba(255,61,127,.9), rgba(124,92,255,.9));
-  display:grid;place-items:center;
-  font-weight:900; letter-spacing:.5px;
-  box-shadow: var(--shadow);
+  height: 44px;      /* adjust 36–52 if you want */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  .brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+}
+}
+
 }
 .brand__name{font-weight:800}
 .brand__tag{font-size:12px;color:var(--muted)}
@@ -352,5 +362,6 @@ select:focus,
 select:active {
   color: rgba(255,255,255,.92);
 }
+
 
 
