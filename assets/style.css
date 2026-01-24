@@ -116,16 +116,16 @@ a{color:inherit}
 
 .brand__text{
   display:block;
-  line-height:1.2;
+  line-height:1.4;
 }
 
 .brand__name{
-  font-weight:900;
-  font-size:20px;
+  font-weight:1200;
+  font-size:30px;
 }
 
 .brand__tag{
-  font-size:14px;
+  font-size:20px;
   color:var(--muted);
 }
 
@@ -432,6 +432,7 @@ select:active {
     font-size:15px;
   }
 }
+
 
 
 
