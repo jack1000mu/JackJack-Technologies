@@ -22,7 +22,7 @@ body{
               linear-gradient(180deg, var(--bg), var(--bg2));
   color: var(--text);
   line-height:1.55;
-  padding-top: 90px;   /* space for sticky header */
+  padding-top: 10px;   /* space for sticky header */
 }
 
 a{color:inherit}
@@ -107,7 +107,7 @@ a{color:inherit}
 }
 
 .brand__logo{
-  height:44px;          /* change 36–52 if you want smaller/bigger */
+  height:60px;          /* change 36–52 if you want smaller/bigger */
   width:auto;
   max-width:160px;     /* prevents very wide logo */
   object-fit:contain;
@@ -120,12 +120,12 @@ a{color:inherit}
 }
 
 .brand__name{
-  font-weight:1200;
-  font-size:30px;
+  font-weight:900;
+  font-size:26px;
 }
 
 .brand__tag{
-  font-size:20px;
+  font-size:16px;
   color:var(--muted);
 }
 
@@ -421,17 +421,18 @@ select:active {
 
 @media (max-width: 600px){
   .brand__logo{
-    height:70px;        /* Bigger logo on phone */
+    height:80px;        /* Bigger logo on phone */
   }
 
   .brand__name{
-    font-size:22px;     /* Big visible company name */
+    font-size:24px;     /* Big visible company name */
   }
 
   .brand__tag{
     font-size:15px;
   }
 }
+
 
 
 
