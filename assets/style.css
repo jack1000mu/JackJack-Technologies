@@ -102,7 +102,7 @@ a{color:inherit}
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
   text-decoration:none;
 }
 
@@ -116,15 +116,16 @@ a{color:inherit}
 
 .brand__text{
   display:block;
-  line-height:1.1;
+  line-height:1.2;
 }
 
 .brand__name{
-  font-weight:800;
+  font-weight:900;
+  font-size:20px;
 }
 
 .brand__tag{
-  font-size:12px;
+  font-size:14px;
   color:var(--muted);
 }
 
@@ -416,6 +417,20 @@ select optgroup {
 select:focus,
 select:active {
   color: rgba(255,255,255,.92);
+}
+
+@media (max-width: 600px){
+  .brand__logo{
+    height:70px;        /* Bigger logo on phone */
+  }
+
+  .brand__name{
+    font-size:22px;     /* Big visible company name */
+  }
+
+  .brand__tag{
+    font-size:15px;
+  }
 }
 
 
