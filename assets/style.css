@@ -22,7 +22,7 @@ body{
               linear-gradient(180deg, var(--bg), var(--bg2));
   color: var(--text);
   line-height:1.55;
-  padding-top: 10px;   /* space for sticky header */
+  padding-top: 0px;   /* space for sticky header */
 }
 
 a{color:inherit}
@@ -432,6 +432,7 @@ select:active {
     font-size:15px;
   }
 }
+
 
 
 
