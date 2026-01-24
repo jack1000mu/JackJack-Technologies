@@ -55,7 +55,7 @@ a{color:inherit}
 
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand__logo{
-  width:44px;height:44px;border-radius:14px;
+  width:auto;height:50px;border-radius:14px;margin-right:10px;
   background: linear-gradient(135deg, rgba(255,61,127,.9), rgba(124,92,255,.9));
   display:grid;place-items:center;
   font-weight:900; letter-spacing:.5px;
@@ -352,4 +352,5 @@ select:focus,
 select:active {
   color: rgba(255,255,255,.92);
 }
+
 
