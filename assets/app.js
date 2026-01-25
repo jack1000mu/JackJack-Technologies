@@ -1,9 +1,9 @@
 (function () {
-  // Year
+  // Footer year
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Mobile menu
+  // ---------------- MOBILE NAV ----------------
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
 
@@ -20,7 +20,7 @@
     });
   }
 
-  // Dropdown services
+  // ---------------- SERVICES DROPDOWN ----------------
   const servicesToggle = document.getElementById("servicesToggle");
   const servicesMenu = document.getElementById("servicesMenu");
 
@@ -44,8 +44,8 @@
     });
 
     document.addEventListener("click", (e) => {
-      const inside = servicesToggle.closest(".dropdown").contains(e.target);
-      if (!inside) closeServices();
+      const drop = servicesToggle.closest(".dropdown");
+      if (drop && !drop.contains(e.target)) closeServices();
     });
 
     document.addEventListener("keydown", (e) => {
@@ -61,7 +61,7 @@
     });
   });
 
-  // Slider
+  // ---------------- SLIDER ----------------
   const slides = Array.from(document.querySelectorAll(".slider__img"));
   const prevBtn = document.getElementById("slidePrev");
   const nextBtn = document.getElementById("slideNext");
@@ -101,7 +101,7 @@
   function restartAuto() {
     if (!slides.length) return;
     if (timer) clearInterval(timer);
-    timer = setInterval(next, 4500);
+    timer = setInterval(next, 4000);
   }
 
   if (slides.length) {
@@ -111,7 +111,7 @@
     if (prevBtn) prevBtn.addEventListener("click", prev);
   }
 
-  // Quote modal (Formspree)
+  // ---------------- QUOTE MODAL (Formspree) ----------------
   const modal = document.getElementById("quoteModal");
   const form = document.getElementById("quoteForm");
   const serviceSelect = document.getElementById("serviceSelect");
@@ -137,9 +137,8 @@
   }
 
   [
-    "openQuote", "openQuoteHero", "openQuoteCard",
-    "openQuoteCta", "openQuoteContact",
-    "openQuoteProjects", "openQuoteTraining", "openQuoteData"
+    "openQuote","openQuoteHero","openQuoteCard","openQuoteCta","openQuoteContact",
+    "openQuoteProjects","openQuoteTraining","openQuoteData","openQuoteSlider"
   ]
     .map(id => document.getElementById(id))
     .filter(Boolean)
@@ -162,6 +161,7 @@
           body: new FormData(form),
           headers: { "Accept": "application/json" }
         });
+
         if (resp.ok) {
           alert("Thanks! Your quote request has been sent. We’ll get back to you shortly.");
           closeModal();
@@ -169,25 +169,21 @@
         } else {
           alert("Sorry, something went wrong. Please try again or use WhatsApp.");
         }
-      } catch (err) {
+      } catch {
         alert("Network issue. Please try again or use WhatsApp.");
       }
     });
   }
 
-  // Testimonials (localStorage)
+  // ---------------- TESTIMONIALS (localStorage) ----------------
   const reviewForm = document.getElementById("reviewForm");
   const reviewsList = document.getElementById("reviewsList");
   const clearBtn = document.getElementById("clearReviews");
-
   const STORAGE_KEY = "jjt_reviews_v1";
 
   function loadReviews() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    } catch {
-      return [];
-    }
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); }
+    catch { return []; }
   }
 
   function saveReviews(list) {
@@ -199,6 +195,15 @@
     return "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
   }
 
+  function escapeHtml(s) {
+    return String(s || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
   function renderReviews() {
     if (!reviewsList) return;
     const items = loadReviews();
@@ -208,8 +213,7 @@
     }
 
     reviewsList.innerHTML = items
-      .slice()
-      .reverse()
+      .slice().reverse()
       .map(r => `
         <div class="review">
           <div class="review__top">
@@ -220,15 +224,6 @@
           <div class="review__date">${new Date(r.date).toLocaleString()}</div>
         </div>
       `).join("");
-  }
-
-  function escapeHtml(s) {
-    return String(s || "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
   }
 
   if (reviewForm) {
