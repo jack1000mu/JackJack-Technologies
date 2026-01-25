@@ -582,3 +582,39 @@ select option{color:#111 !important; background-color:#fff !important;}
   .slider__frame{height: 260px;}
 }
 
+/* ===== PC: MAKE SLIDER FULL WIDTH (REMOVE SIDE SPACE) ===== */
+@media (min-width: 901px){
+  .slider{ padding:0; }
+
+  .slider__frame{
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    height: 520px;      /* adjust if you want */
+    border-radius: 0;   /* full width look */
+  }
+
+  .slider__img{
+    object-fit: cover;
+    object-position: center;
+  }
+}
+/* ===== BRAND TEXT NOT CUT (PC + MOBILE) ===== */
+.brand{ flex:1; min-width:0; }
+.brand__text{ min-width:0; }
+
+@media (min-width: 901px){
+  .brand__name{
+    white-space: nowrap;   /* keep one line */
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 900px){
+  .brand__name{
+    white-space: normal;   /* allow wrap so not cut */
+    font-size: 20px;
+    line-height: 1.1;
+  }
+}
+
