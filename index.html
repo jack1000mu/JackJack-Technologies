@@ -7,89 +7,53 @@
   <meta name="description" content="Jack Jack Technologies offers online registration services (ZRA, PACRA, NAPSA, NHIMA and more), ICT support, basic ICT short courses, and SurveyCTO/KoboCollect setup." />
   <meta name="robots" content="index,follow" />
 
-  <link rel="canonical" href="YOUR_SITE_URL_HERE/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Jack Jack Technologies | Online Services & ICT Support" />
-  <meta property="og:description" content="Online registrations & returns, ICT support, short courses, and SurveyCTO/KoboCollect solutions." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="YOUR_SITE_URL_HERE/" />
-  <meta property="og:image" content="YOUR_SITE_URL_HERE/assets/og-image.png" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jack Jack Technologies" />
-  <meta name="twitter:description" content="Online services, ICT support, training, and data collection solutions." />
-  <meta name="twitter:image" content="YOUR_SITE_URL_HERE/assets/og-image.png" />
-
   <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body>
-  <!-- Top bar -->
-  <div class="topbar">
-    <div class="container topbar__inner">
-      <div class="topbar__left">
-        <span class="pill">Ndola, Zambia</span>
-        <span class="sep">•</span>
-        <a class="toplink" href="tel:+260779745556">Call/WhatsApp: 0779 745 556</a>
-        <span class="sep">•</span>
-        <a class="toplink" href="mailto:jacksonmulenga100@gmail.com">jacksonmulenga100@gmail.com</a>
-      </div>
-      <div class="topbar__right">
-        <button class="btn btn--ghost btn--sm" id="openQuoteTop">Request a Quote</button>
-      </div>
-    </div>
-  </div>
 
+<body>
   <!-- Header -->
   <header class="header" id="top">
-  <div class="container header__inner">
+    <div class="container header__inner">
+      <a class="brand" href="#top">
+        <img class="brand__logo" src="assets/logo.JPEG" alt="Jack Jack Technologies logo">
+        <span class="brand__text">
+          <span class="brand__name">Jack Jack Technologies</span>
+          <span class="brand__tag">Online Services • ICT Support • Training</span>
+        </span>
+      </a>
 
-    <a class="brand" href="./">
-      <img class="brand__logo" src="assets/logo.JPEG" alt="Jack Jack Technologies logo">
-      <span class="brand__text">
-        <span class="brand__name">Jack Jack Technologies</span><br>
-        <span class="brand__tag">Online Services • ICT Support • Training</span>
-      </span>
-    </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        ☰ Menu
+      </button>
 
-      <nav class="nav" aria-label="Primary">
-        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#where">Where We Work</a>
 
-        <div class="nav__menu" id="navMenu">
-          <a class="nav__link" href="./#about">About</a>
+        <div class="dropdown" id="servicesDropdown">
+          <button class="nav__link dropdown__btn" id="servicesToggle" type="button" aria-expanded="false">
+            Services <span class="chev" aria-hidden="true">▾</span>
+          </button>
 
-          <div class="dropdown">
-            <button class="nav__link dropdown__toggle" id="servicesToggle" aria-expanded="false">
-              Services <span class="chev" aria-hidden="true">▾</span>
-            </button>
-            <div class="dropdown__menu" role="menu" aria-label="Services">
-              <a role="menuitem" href="services.html#zra-tpin">ZRA TPIN Registration</a>
-              <a role="menuitem" href="services.html#zra-returns">ZRA Returns</a>
-              <a role="menuitem" href="services.html#pacra-name">PACRA Business Name Clearance</a>
-              <a role="menuitem" href="services.html#pacra-company">PACRA Company Registration</a>
-              <a role="menuitem" href="services.html#pacra-returns">PACRA Returns</a>
-              <a role="menuitem" href="services.html#napsa-reg">NAPSA Account Opening</a>
-              <a role="menuitem" href="services.html#napsa-returns">NAPSA Returns</a>
-              <a role="menuitem" href="services.html#nhima">NHIMA Registration</a>
-              <a role="menuitem" href="services.html#zppa">ZPPA Registration</a>
-              <a role="menuitem" href="services.html#ncc">NCC Registration</a>
-              <a role="menuitem" href="services.html#eiz">EIZ Registration</a>
-              <a role="menuitem" href="services.html#zaqa">ZAQA Services</a>
-              <a role="menuitem" href="services.html#ictaz">ICTAZ Services</a>
-              <a role="menuitem" href="services.html#nmcz">NMCZ Licence (Reg/Renewal)</a>
-              <a role="menuitem" href="services.html#passport">Passport Application Support</a>
-              <a role="menuitem" href="services.html#surveys">SurveyCTO & KoboCollect</a>
-              <a role="menuitem" href="services.html#ict-courses">Basic ICT Short Courses</a>
-              <div class="dropdown__sep" aria-hidden="true"></div>
-              <a role="menuitem" href="services.html#more">Other Online Services</a>
-            </div>
+          <div class="dropdown__menu" role="menu" aria-label="Services">
+            <a role="menuitem" href="services.html#zra-tpin">ZRA TPIN Registration</a>
+            <a role="menuitem" href="services.html#zra-returns">ZRA Returns</a>
+            <a role="menuitem" href="services.html#pacra-name">PACRA Name Clearance</a>
+            <a role="menuitem" href="services.html#pacra-company">PACRA Company Registration</a>
+            <a role="menuitem" href="services.html#napsa-reg">NAPSA Account Opening</a>
+            <a role="menuitem" href="services.html#nhima">NHIMA Registration</a>
+            <a role="menuitem" href="services.html#surveys">SurveyCTO & KoboCollect</a>
+            <a role="menuitem" href="services.html#ict-courses">Basic ICT Short Courses</a>
+            <div class="dropdown__sep" aria-hidden="true"></div>
+            <a role="menuitem" href="services.html#more">Other Online Services</a>
           </div>
-
-          <a class="nav__link" href="./#contact">Contact</a>
-          <a class="nav__link nav__link--pill" href="portfolio.html">My Portfolio</a>
-          <button class="btn btn--primary nav__cta" id="openQuote">Get Started</button>
         </div>
+
+        <a class="nav__link" href="#projects">Projects</a>
+        <a class="nav__link" href="#testimonials">Testimonials</a>
+        <a class="nav__link nav__link--pill" href="#contact">Contact</a>
+
+        <button class="btn btn--primary nav__cta" id="openQuote">Get Started</button>
       </nav>
     </div>
   </header>
@@ -97,57 +61,92 @@
   <!-- Hero -->
   <main>
     <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+
       <div class="container hero__grid">
         <div class="hero__content">
+          <p class="hero__pill">Trusted Digital Support • Fast Service • Clear Communication</p>
+
           <h1 class="hero__title">
-            Fast, Reliable <span class="accent">Online Services</span> & ICT Support — Anywhere, Anytime.
+            Jack Jack <span class="accent">Technologies</span>
           </h1>
+
           <p class="hero__subtitle">
-            We help individuals, SMEs, and organizations with registrations, returns, and digital tools —
-            plus practical training and data collection solutions (SurveyCTO & KoboCollect).
+            Fast, reliable online services and ICT support — helping individuals, SMEs, and organisations
+            with registrations, returns, digital tools, and practical training.
           </p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" href="services.html">Explore Services</a>
-            <button class="btn btn--ghost" id="openQuoteHero">Request a Quote</button>
-            <a class="btn btn--ghost" href="https://jack1000mu.github.io/Portfolio/" target="_blank" rel="noopener">View Portfolio</a>
+            <a class="btn btn--primary btn--lg" href="services.html">Explore Services</a>
+            <button class="btn btn--ghost btn--lg" id="openQuoteHero">Request a Quote</button>
+            <a class="btn btn--ghost btn--lg" href="#contact">Contact</a>
           </div>
 
           <div class="trust">
             <div class="trust__item">
-              <div class="trust__num">Speed</div>
-              <div class="trust__label">Quick Support</div>
+              <div class="trust__num">Quick</div>
+              <div class="trust__label">Turnaround time</div>
             </div>
             <div class="trust__item">
               <div class="trust__num">Flexible</div>
-              <div class="trust__label">Remote or On-site</div>
+              <div class="trust__label">Remote or on-site</div>
             </div>
             <div class="trust__item">
               <div class="trust__num">Professional</div>
-              <div class="trust__label">Clear Guidance</div>
+              <div class="trust__label">Clear guidance</div>
             </div>
           </div>
         </div>
 
         <div class="hero__card" aria-label="Highlights">
           <div class="card glass">
-            <h2 class="card__title">Popular requests</h2>
+            <h2 class="card__title">Popular Requests</h2>
             <ul class="list">
-              <li><span class="dot"></span> ZRA TPIN registration & returns</li>
-              <li><span class="dot"></span> PACRA name clearance & company registration</li>
-              <li><span class="dot"></span> NAPSA/NHIMA registrations & returns</li>
-              <li><span class="dot"></span> SurveyCTO / KoboCollect form setup</li>
-              <li><span class="dot"></span> Basic ICT skills short courses</li>
+              <li><span class="dot"></span> ZRA TPIN Registration & Returns</li>
+              <li><span class="dot"></span> PACRA Name Clearance & Company Registration</li>
+              <li><span class="dot"></span> NAPSA / NHIMA Registrations & Returns</li>
+              <li><span class="dot"></span> SurveyCTO / KoboCollect Form Setup</li>
+              <li><span class="dot"></span> Basic ICT Skills Short Courses</li>
             </ul>
+
             <div class="card__actions">
-              <a class="btn btn--soft" href="services.html#zra-tpin">Start with ZRA</a>
-              <button class="btn btn--primary" id="openQuoteCard">Get a Quote</button>
+              <a class="btn btn--soft" href="https://wa.me/260779745556" target="_blank" rel="noopener">💬 WhatsApp</a>
+              <a class="btn" href="tel:+260779745556">📞 Call</a>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero__bg" aria-hidden="true"></div>
+    <!-- Slider (between nav/hero and next content) -->
+    <section class="sliderWrap" aria-label="Highlights slider">
+      <div class="container">
+        <div class="slider" id="slider">
+          <div class="slides" id="slides">
+            <div class="slide">
+              <img src="assets/Jack1.JPEG" alt="Jack Jack Technologies service highlight 1">
+              <div class="slide__cap">Online Services • Fast & Reliable</div>
+            </div>
+            <div class="slide">
+              <img src="assets/Jack2.JPEG" alt="Jack Jack Technologies service highlight 2">
+              <div class="slide__cap">ICT Support • Troubleshooting & Setup</div>
+            </div>
+            <div class="slide">
+              <img src="assets/Jack3.JPEG" alt="Jack Jack Technologies service highlight 3">
+              <div class="slide__cap">Training • Digital Skills & Safety</div>
+            </div>
+            <div class="slide">
+              <img src="assets/Jack4.JPEG" alt="Jack Jack Technologies service highlight 4">
+              <div class="slide__cap">Data Tools • SurveyCTO & KoboCollect</div>
+            </div>
+          </div>
+
+          <button class="sliderBtn prev" id="prevBtn" aria-label="Previous slide">‹</button>
+          <button class="sliderBtn next" id="nextBtn" aria-label="Next slide">›</button>
+
+          <div class="dots" id="dots" aria-label="Slider dots"></div>
+        </div>
+      </div>
     </section>
 
     <!-- About -->
@@ -157,7 +156,7 @@
           <h2>About Jack Jack Technologies</h2>
           <p>
             We provide reliable online services and ICT support that save you time and reduce stress.
-            We work with individuals, SMEs, and organizations — with speed, professionalism, and clear communication.
+            We work with individuals, SMEs, and organisations — with speed, professionalism, and clear communication.
           </p>
         </div>
 
@@ -168,11 +167,82 @@
           </div>
           <div class="panel">
             <h3>ICT Support</h3>
-            <p>Technical support, troubleshooting, user support, and system guidance.</p>
+            <p>Technical support, troubleshooting, and practical user support.</p>
           </div>
           <div class="panel">
             <h3>Training & Data Tools</h3>
             <p>Basic ICT short courses + SurveyCTO/KoboCollect setup and training.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Where we work -->
+    <section class="section" id="where">
+      <div class="container">
+        <div class="section__head">
+          <h2>Where We Work</h2>
+          <p>Ndola • Copperbelt • Zambia — Remote support available countrywide.</p>
+        </div>
+
+        <div class="panel panel--soft">
+          <p class="muted">
+            Need services outside Ndola? No problem — we support clients remotely across Zambia and can arrange on-site support when necessary.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <h2>Projects</h2>
+          <p>Selected work and practical solutions we deliver.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="panel">
+            <h3>Online Service Support</h3>
+            <p>Helping individuals and SMEs complete registrations, returns, and compliance tasks.</p>
+          </div>
+          <div class="panel">
+            <h3>ICT Support & Setup</h3>
+            <p>Device configuration, troubleshooting, and user support (PCs, printers, software).</p>
+          </div>
+          <div class="panel">
+            <h3>Data Collection Tools</h3>
+            <p>SurveyCTO/KoboCollect forms with skip logic, exports, and quality checks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section__head">
+          <h2>Testimonials</h2>
+          <p>Ratings and reviews from people we’ve helped.</p>
+        </div>
+
+        <div class="testGrid">
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p class="review__text">“Very fast and professional. Helped me with TPIN and returns without stress.”</p>
+            <div class="review__name">— Client (Ndola)</div>
+          </div>
+
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p class="review__text">“Fixed my laptop and printer issues quickly. Great ICT support!”</p>
+            <div class="review__name">— SME Owner</div>
+          </div>
+
+          <div class="review">
+            <div class="stars">★★★★☆</div>
+            <p class="review__text">“Training was clear and easy to follow. I learned online safety and Excel basics.”</p>
+            <div class="review__name">— Training Participant</div>
           </div>
         </div>
       </div>
@@ -198,32 +268,16 @@
         </div>
 
         <div class="contact">
-          <!-- Reach us -->
           <div class="panel">
             <h3>Reach us</h3>
             <p><strong>Phone/WhatsApp:</strong> <a href="tel:+260779745556">+260 779 745 556</a></p>
             <p><strong>Email:</strong> <a href="mailto:jacksonmulenga100@gmail.com">jacksonmulenga100@gmail.com</a></p>
 
-            <p><strong>LinkedIn:</strong>
-              <a href="https://www.linkedin.com/in/jackson-mulenga-936442227" target="_blank" rel="noopener">View Profile</a>
-            </p>
-            <p><strong>Facebook:</strong>
-              <a href="https://www.facebook.com/share/17pKzpn9WU/" target="_blank" rel="noopener">Visit Page</a>
-            </p>
-
             <div class="spacer"></div>
-            <button class="btn btn--primary" id="openQuoteContact">Request a Quote</button>
 
             <div class="socialRow">
-              <a class="btn btn--soft" href="https://wa.me/260779745556?text=Hello%20Jack%20Jack%20Technologies%2C%20I%20need%20help%20with%20%5Bservice%5D.%20My%20location%20is%20%5Bcity%5D." target="_blank" rel="noopener">
-                WhatsApp
-              </a>
-              <a class="btn btn--soft" href="https://www.linkedin.com/in/jackson-mulenga-936442227" target="_blank" rel="noopener">
-                LinkedIn
-              </a>
-              <a class="btn btn--soft" href="https://www.facebook.com/share/17pKzpn9WU/" target="_blank" rel="noopener">
-                Facebook
-              </a>
+              <a class="btn btn--soft" href="https://wa.me/260779745556?text=Hello%20Jack%20Jack%20Technologies%2C%20I%20need%20help%20with%20%5Bservice%5D.%20My%20location%20is%20%5Bcity%5D." target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn--soft" href="tel:+260779745556">Call</a>
             </div>
 
             <p class="muted tiny" style="margin-top:12px;">
@@ -231,7 +285,6 @@
             </p>
           </div>
 
-          <!-- Map -->
           <div class="panel panel--soft">
             <h3>Find us (Ndola)</h3>
             <div class="mapBox">
@@ -255,7 +308,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div>
-        <div class="brand__name">Jack Jack Technologies</div>
+        <div class="footerBrand">Jack Jack Technologies</div>
         <div class="muted">Online Services • ICT Support • Training</div>
       </div>
       <div class="muted">© <span id="year"></span> Jack Jack Technologies. All rights reserved.</div>
@@ -289,23 +342,15 @@
 
         <div class="form__row">
           <label>Service needed</label>
-          <select name="service" id="serviceSelect" required>
+          <select name="service" required>
             <option value="" selected disabled>Select a service</option>
             <option>ZRA TPIN Registration</option>
             <option>ZRA Returns</option>
-            <option>PACRA Business Name Clearance</option>
+            <option>PACRA Name Clearance</option>
             <option>PACRA Company Registration</option>
-            <option>PACRA Returns</option>
             <option>NAPSA Account Opening</option>
             <option>NAPSA Returns</option>
             <option>NHIMA Registration</option>
-            <option>ZPPA Registration</option>
-            <option>NCC Registration</option>
-            <option>EIZ Registration</option>
-            <option>ZAQA Services</option>
-            <option>ICTAZ Services</option>
-            <option>NMCZ Licence (Reg/Renewal)</option>
-            <option>Passport Application Support</option>
             <option>SurveyCTO / KoboCollect</option>
             <option>Basic ICT Skills Short Courses</option>
             <option>Other</option>
@@ -322,9 +367,7 @@
           <button class="btn btn--ghost" type="button" data-close="true">Cancel</button>
         </div>
 
-        <p class="muted tiny" id="formHint">
-          You will receive a confirmation email if you provide your email address.
-        </p>
+        <p class="muted tiny">Tip: Add your location and service name for faster support.</p>
       </form>
     </div>
   </div>
@@ -332,6 +375,3 @@
   <script src="assets/app.js"></script>
 </body>
 </html>
-
-
-
