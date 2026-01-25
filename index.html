@@ -4,24 +4,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jack Jack Technologies | Online Services, ICT Support & Training</title>
-  <meta name="description" content="Jack Jack Technologies offers online registration services (ZRA, PACRA, NAPSA, NHIMA and more), ICT support, ICT short courses, and SurveyCTO/KoboCollect setup." />
+  <meta name="description" content="Jack Jack Technologies offers online registration services (ZRA, PACRA, NAPSA, NHIMA and more), ICT support, basic ICT short courses, and SurveyCTO/KoboCollect setup." />
   <meta name="robots" content="index,follow" />
 
-  <meta property="og:title" content="Jack Jack Technologies | Online Services & ICT Support" />
-  <meta property="og:description" content="Online registrations & returns, ICT support, short courses, and SurveyCTO/KoboCollect solutions." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/logo.JPEG" />
-
   <link rel="stylesheet" href="assets/style.css" />
+  <!-- Back to Top -->
+<button class="backTop" id="backTop" type="button" aria-label="Back to top">
+  ↑
+</button>
+
 </head>
 
 <body>
+  <!-- Top bar (kept, but compact on mobile) -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <span class="pill">Ndola, Zambia</span>
+        <span class="sep">•</span>
+        <a class="toplink" href="tel:+260779745556">Call/WhatsApp: 0779 745 556</a>
+        <span class="sep">•</span>
+        <a class="toplink" href="mailto:jacksonmulenga100@gmail.com">jacksonmulenga100@gmail.com</a>
+      </div>
+      <div class="topbar__right">
+        <button class="btn btn--ghost btn--sm" id="openQuoteTop" type="button">Request a Quote</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="header" id="top">
     <div class="container header__inner">
 
       <a class="brand" href="./" aria-label="Jack Jack Technologies home">
-        <img class="brand__logo" src="assets/logo.JPEG" alt="Jack Jack Technologies logo">
+        <img class="brand__logo" src="assets/logo.jpg" alt="Jack Jack Technologies logo">
         <span class="brand__text">
           <span class="brand__name">Jack Jack Technologies</span>
           <span class="brand__tag">Online Services • ICT Support • Training</span>
@@ -37,7 +53,7 @@
           <a class="nav__link" href="#about">About</a>
           <a class="nav__link" href="#where">Where We Work</a>
 
-          <div class="dropdown">
+          <div class="dropdown" id="servicesDropdown">
             <button class="nav__link dropdown__toggle" id="servicesToggle" aria-expanded="false" type="button">
               Services <span class="chev" aria-hidden="true">▾</span>
             </button>
@@ -69,7 +85,7 @@
           <a class="nav__link" href="#testimonials">Testimonials</a>
           <a class="nav__link" href="#contact">Contact</a>
 
-          <a class="nav__link nav__link--pill" href="portfolio.html">My Portfolio</a>
+          <a class="nav__link nav__link--pill" href="https://jack1000mu.github.io/Portfolio/" target="_blank" rel="noopener">My Portfolio</a>
           <button class="btn btn--primary nav__cta" id="openQuote" type="button">Get Started</button>
         </div>
       </nav>
@@ -80,8 +96,9 @@
   <section class="slider" aria-label="Highlights slider">
     <div class="slider__frame">
       <div class="slider__overlay">
-        <h2>Welcome to Jack Jack Technologies</h2>
-        <p>Reliable Online Services • ICT Support • Training</p>
+        <h2 class="slider__title">Jack Jack Technologies</h2>
+        <p class="slider__sub">Reliable Online Services • ICT Support • Training</p>
+
         <div class="slider__overlayActions">
           <a class="btn btn--primary btn--sm" href="services.html">Explore Services</a>
           <button class="btn btn--ghost btn--sm" id="openQuoteSlider" type="button">Request a Quote</button>
@@ -101,11 +118,9 @@
     </div>
   </section>
 
+  <!-- Hero -->
   <main>
-    <!-- Hero (uses Jack.JPEG background from CSS) -->
-    <section class="hero hero--image">
-      <div class="hero__overlay" aria-hidden="true"></div>
-
+    <section class="hero">
       <div class="container hero__grid">
         <div class="hero__content">
           <h1 class="hero__title">
@@ -125,20 +140,20 @@
           <div class="trust">
             <div class="trust__item">
               <div class="trust__num">Quick</div>
-              <div class="trust__label">Turnaround time</div>
+              <div class="trust__label">Turnaround Time</div>
             </div>
             <div class="trust__item">
               <div class="trust__num">Flexible</div>
-              <div class="trust__label">Remote or on-site</div>
+              <div class="trust__label">Remote or On-site</div>
             </div>
             <div class="trust__item">
               <div class="trust__num">Professional</div>
-              <div class="trust__label">Clear guidance</div>
+              <div class="trust__label">Clear Guidance</div>
             </div>
           </div>
         </div>
 
-        <div class="hero__card">
+        <div class="hero__card" aria-label="Highlights">
           <div class="card glass">
             <h2 class="card__title">Popular requests</h2>
             <ul class="list">
@@ -155,6 +170,8 @@
           </div>
         </div>
       </div>
+
+      <div class="hero__bg hero__bg--photo" aria-hidden="true"></div>
     </section>
 
     <!-- About -->
@@ -190,21 +207,23 @@
       <div class="container">
         <div class="section__head">
           <h2>Where We Work</h2>
-          <p>Based in Ndola, Zambia — serving clients remotely across Zambia and on-site when needed.</p>
+          <p>
+            Based in Ndola, serving clients remotely across Zambia — and on-site when needed.
+          </p>
         </div>
 
         <div class="grid3">
           <div class="panel panel--soft">
-            <h3>Remote Support</h3>
-            <p>WhatsApp, phone calls, email, and guided steps — fast and convenient.</p>
+            <h3>Ndola & Copperbelt</h3>
+            <p>On-site support available for SMEs and organizations.</p>
           </div>
-          <div class="panel">
-            <h3>On-site (when needed)</h3>
-            <p>Ndola and nearby areas — scheduled visits for setups and support.</p>
+          <div class="panel panel--soft">
+            <h3>Lusaka & Nationwide</h3>
+            <p>Remote assistance for registrations, returns, and digital tools.</p>
           </div>
-          <div class="panel">
-            <h3>Nationwide</h3>
-            <p>Support for individuals and businesses across Zambia (documents & online submissions).</p>
+          <div class="panel panel--soft">
+            <h3>Remote Areas</h3>
+            <p>Training support and guidance where access is limited.</p>
           </div>
         </div>
       </div>
@@ -215,32 +234,20 @@
       <div class="container">
         <div class="section__head">
           <h2>Projects</h2>
-          <p>Examples of work and support areas. (Projects coming soon)</p>
+          <p>Some areas we support (add details as you grow).</p>
         </div>
 
         <div class="servicesGrid">
           <div class="svc">
-            <h2>Online Registrations & Returns</h2>
-            <p>Helping clients with ZRA, PACRA, NAPSA, NHIMA and other services efficiently.</p>
-            <a class="btn btn--soft" href="services.html">View Services</a>
+            <h2>Online Compliance Support</h2>
+            <p>Helping clients complete registrations and returns with correct requirements.</p>
+            <button class="btn btn--primary" type="button" data-open-quote="Online Compliance Support">Get Started</button>
           </div>
 
           <div class="svc">
-            <h2>ICT Support & Setup</h2>
-            <p>Troubleshooting, device setup, accounts, antivirus and best practices.</p>
-            <button class="btn btn--primary" id="openQuoteProjects" type="button">Request Support</button>
-          </div>
-
-          <div class="svc">
-            <h2>Training & Digital Skills</h2>
-            <p>Basic ICT training for individuals, staff, and community groups.</p>
-            <button class="btn btn--soft" id="openQuoteTraining" type="button">Enroll / Ask</button>
-          </div>
-
-          <div class="svc">
-            <h2>Data Tools (SurveyCTO / KoboCollect)</h2>
-            <p>Form design, skip logic, training, exports, and troubleshooting.</p>
-            <button class="btn btn--primary" id="openQuoteData" type="button">Get Setup Help</button>
+            <h2>Data Collection Setup</h2>
+            <p>SurveyCTO / KoboCollect forms, skip logic, training and deployment support.</p>
+            <button class="btn btn--primary" type="button" data-open-quote="SurveyCTO / KoboCollect">Get Started</button>
           </div>
         </div>
       </div>
@@ -251,55 +258,59 @@
       <div class="container">
         <div class="section__head">
           <h2>Testimonials</h2>
-          <p>Rate our service and leave your review. (Saved on your device for now.)</p>
+          <p>Leave a rating and a short review (saved on this device for now).</p>
         </div>
 
-        <div class="testi">
+        <div class="testWrap">
           <div class="panel">
-            <h3>Add your review</h3>
+            <h3>Rate & Review</h3>
 
-            <form class="reviewForm" id="reviewForm">
+            <form id="reviewForm" class="reviewForm">
               <div class="form__row">
-                <label>Your name</label>
-                <input type="text" id="reviewName" placeholder="e.g. Mary Banda" required>
+                <label>Your Name</label>
+                <input id="revName" type="text" placeholder="e.g. Mary Banda" required>
               </div>
 
               <div class="form__row">
-                <label>Rating</label>
-                <div class="stars" role="radiogroup" aria-label="Rating">
-                  <input type="radio" name="rating" id="r5" value="5" required><label for="r5">★</label>
-                  <input type="radio" name="rating" id="r4" value="4"><label for="r4">★</label>
-                  <input type="radio" name="rating" id="r3" value="3"><label for="r3">★</label>
-                  <input type="radio" name="rating" id="r2" value="2"><label for="r2">★</label>
-                  <input type="radio" name="rating" id="r1" value="1"><label for="r1">★</label>
+                <label>Your Rating</label>
+                <div class="stars" id="starPicker" aria-label="Star rating">
+                  <button type="button" class="star" data-star="1">★</button>
+                  <button type="button" class="star" data-star="2">★</button>
+                  <button type="button" class="star" data-star="3">★</button>
+                  <button type="button" class="star" data-star="4">★</button>
+                  <button type="button" class="star" data-star="5">★</button>
+                  <span class="stars__hint" id="starsHint">Select a rating</span>
                 </div>
+                <input id="revRating" type="hidden" value="0" required>
               </div>
 
               <div class="form__row">
-                <label>Review</label>
-                <textarea id="reviewText" rows="4" placeholder="Write your review..." required></textarea>
+                <label>Your Review</label>
+                <textarea id="revText" rows="4" placeholder="Write your experience..." required></textarea>
               </div>
 
               <div class="form__actions">
                 <button class="btn btn--primary" type="submit">Submit Review</button>
-                <button class="btn btn--ghost" type="button" id="clearReviews">Clear (this device)</button>
+                <button class="btn btn--ghost" type="button" id="clearReviews">Clear My Device Reviews</button>
               </div>
 
-              <p class="muted tiny">Thank you for your reviews.</p>
+              <p class="muted tiny" style="margin-top:10px;">
+                Later we’ll connect this to a server so all visitors can see reviews.
+              </p>
             </form>
           </div>
 
           <div class="panel panel--soft">
-            <h3>What people are saying</h3>
-            <div class="reviews" id="reviewsList">
-              <p class="muted">No reviews yet. Be the first to leave one 🙂</p>
+            <h3>What People Say</h3>
+            <div id="reviewsList" class="reviewsList">
+              <p class="muted">No reviews yet — be the first.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA band -->
     <section class="cta">
       <div class="container cta__inner">
         <div>
@@ -335,10 +346,14 @@
             <button class="btn btn--primary" id="openQuoteContact" type="button">Request a Quote</button>
 
             <div class="socialRow">
-              <a class="btn btn--soft" href="https://wa.me/260779745556?text=Hello%20Jack%20Jack%20Technologies%2C%20I%20need%20help%20with%20%5Bservice%5D.%20My%20location%20is%20%5Bcity%5D." target="_blank" rel="noopener">WhatsApp</a>
-              <a class="btn btn--soft" href="tel:+260779745556">Call</a>
-              <a class="btn btn--soft" href="https://www.linkedin.com/in/jackson-mulenga-936442227" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="btn btn--soft" href="https://www.facebook.com/share/17pKzpn9WU/" target="_blank" rel="noopener">Facebook</a>
+              <a class="btn btn--soft" href="https://wa.me/260779745556?text=Hello%20Jack%20Jack%20Technologies%2C%20I%20need%20help%20with%20%5Bservice%5D.%20My%20location%20is%20%5Bcity%5D."
+                 target="_blank" rel="noopener">WhatsApp</a>
+
+              <a class="btn btn--soft" href="https://www.linkedin.com/in/jackson-mulenga-936442227"
+                 target="_blank" rel="noopener">LinkedIn</a>
+
+              <a class="btn btn--soft" href="https://www.facebook.com/share/17pKzpn9WU/"
+                 target="_blank" rel="noopener">Facebook</a>
             </div>
 
             <p class="muted tiny" style="margin-top:12px;">
@@ -355,7 +370,8 @@
                 width="100%" height="320"
                 style="border:0;"
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
             <p class="muted tiny" style="margin-top:10px;">Serving Ndola and clients across Zambia.</p>
           </div>
@@ -368,7 +384,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div>
-        <div class="brand__name">Jack Jack Technologies</div>
+        <div class="brand__name footer__brand">Jack Jack Technologies</div>
         <div class="muted">Online Services • ICT Support • Training</div>
       </div>
       <div class="muted">© <span id="year"></span> Jack Jack Technologies. All rights reserved.</div>
@@ -435,7 +451,7 @@
           <button class="btn btn--ghost" type="button" data-close="true">Cancel</button>
         </div>
 
-        <p class="muted tiny">If you provide your email, you may receive a confirmation from Formspree.</p>
+        <p class="muted tiny" id="formHint">If you provide your email, you may receive a confirmation from Formspree.</p>
       </form>
     </div>
   </div>
