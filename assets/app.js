@@ -1,65 +1,120 @@
-// assets/app.js  ✅ REPLACE ALL
-
 (function () {
-  // ===== Helpers =====
-  const qs = (s, el=document) => el.querySelector(s);
-  const qsa = (s, el=document) => [...el.querySelectorAll(s)];
-
-  // ===== Year =====
-  const yearEl = qs("#year");
+  // Year
+  const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ===== Mobile menu =====
-  const navToggle = qs("#navToggle");
-  const navMenu = qs("#navMenu");
+  // Mobile menu
+  const navToggle = document.getElementById("navToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  function closeNav() {
+    if (!navMenu || !navToggle) return;
+    navMenu.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  }
 
   if (navToggle && navMenu) {
     navToggle.addEventListener("click", () => {
       const open = navMenu.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-
-    // close menu after clicking a link (mobile)
-    qsa("#navMenu a").forEach(a => {
-      a.addEventListener("click", () => {
-        navMenu.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+      navToggle.setAttribute("aria-expanded", String(open));
     });
   }
 
-  // ===== Services dropdown (works desktop + mobile) =====
-  const dropdown = qs("#servicesDropdown");
-  const servicesToggle = qs("#servicesToggle");
+  // Dropdown services
+  const servicesToggle = document.getElementById("servicesToggle");
+  const servicesMenu = document.getElementById("servicesMenu");
 
-  function closeDropdown() {
-    if (!dropdown || !servicesToggle) return;
-    dropdown.classList.remove("is-open");
+  function closeServices() {
+    if (!servicesToggle || !servicesMenu) return;
+    servicesMenu.classList.remove("is-open");
     servicesToggle.setAttribute("aria-expanded", "false");
   }
 
-  if (dropdown && servicesToggle) {
+  function toggleServices() {
+    if (!servicesToggle || !servicesMenu) return;
+    const willOpen = !servicesMenu.classList.contains("is-open");
+    servicesMenu.classList.toggle("is-open", willOpen);
+    servicesToggle.setAttribute("aria-expanded", String(willOpen));
+  }
+
+  if (servicesToggle && servicesMenu) {
     servicesToggle.addEventListener("click", (e) => {
       e.preventDefault();
-      const isOpen = dropdown.classList.toggle("is-open");
-      servicesToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      toggleServices();
     });
 
-    // close when clicking outside
     document.addEventListener("click", (e) => {
-      if (!dropdown.contains(e.target)) closeDropdown();
+      const inside = servicesToggle.closest(".dropdown").contains(e.target);
+      if (!inside) closeServices();
     });
 
-    // close on ESC
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeDropdown();
+      if (e.key === "Escape") closeServices();
     });
   }
 
-  // ===== Quote modal =====
-  const modal = qs("#quoteModal");
-  const form = qs("#quoteForm");
-  const serviceSelect = qs("select[name='service']");
+  // Close nav when clicking a link (mobile)
+  document.querySelectorAll(".nav__menu a").forEach(a => {
+    a.addEventListener("click", () => {
+      closeServices();
+      closeNav();
+    });
+  });
+
+  // Slider
+  const slides = Array.from(document.querySelectorAll(".slider__img"));
+  const prevBtn = document.getElementById("slidePrev");
+  const nextBtn = document.getElementById("slideNext");
+  const dotsWrap = document.getElementById("sliderDots");
+
+  let idx = 0;
+  let timer = null;
+
+  function renderDots() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = "";
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "slider__dot" + (i === idx ? " is-active" : "");
+      b.setAttribute("aria-label", `Go to slide ${i + 1}`);
+      b.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(b);
+    });
+  }
+
+  function show(i) {
+    slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
+    idx = i;
+    renderDots();
+  }
+
+  function goTo(i) {
+    if (!slides.length) return;
+    show((i + slides.length) % slides.length);
+    restartAuto();
+  }
+
+  function next() { goTo(idx + 1); }
+  function prev() { goTo(idx - 1); }
+
+  function restartAuto() {
+    if (!slides.length) return;
+    if (timer) clearInterval(timer);
+    timer = setInterval(next, 4500);
+  }
+
+  if (slides.length) {
+    show(0);
+    restartAuto();
+    if (nextBtn) nextBtn.addEventListener("click", next);
+    if (prevBtn) prevBtn.addEventListener("click", prev);
+  }
+
+  // Quote modal (Formspree)
+  const modal = document.getElementById("quoteModal");
+  const form = document.getElementById("quoteForm");
+  const serviceSelect = document.getElementById("serviceSelect");
 
   function openModal(serviceName) {
     if (!modal) return;
@@ -67,12 +122,10 @@
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
 
-    // optional: preselect service
     if (serviceName && serviceSelect) {
       const options = Array.from(serviceSelect.options);
       const match = options.find(o => o.text.trim() === serviceName.trim());
-      if (match) serviceSelect.value = match.value;
-      else serviceSelect.value = "Other";
+      serviceSelect.value = match ? match.value : "Other";
     }
   }
 
@@ -83,23 +136,23 @@
     document.body.style.overflow = "";
   }
 
-  // Buttons that open the modal (only the ones that exist will work)
   [
-    "openQuote",
-    "openQuoteHero",
-    "openQuoteCta"
+    "openQuote", "openQuoteHero", "openQuoteCard",
+    "openQuoteCta", "openQuoteContact",
+    "openQuoteProjects", "openQuoteTraining", "openQuoteData"
   ]
-    .map(id => qs("#" + id))
+    .map(id => document.getElementById(id))
     .filter(Boolean)
     .forEach(btn => btn.addEventListener("click", () => openModal()));
 
-  // Close modal buttons/backdrop
-  qsa("[data-close='true']").forEach(el => el.addEventListener("click", closeModal));
+  document.querySelectorAll("[data-close='true']").forEach(el => {
+    el.addEventListener("click", closeModal);
+  });
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
 
-  // Formspree submit (stay on page)
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -109,71 +162,105 @@
           body: new FormData(form),
           headers: { "Accept": "application/json" }
         });
-
         if (resp.ok) {
-          alert("Thanks! Your request has been sent. We’ll get back to you shortly.");
+          alert("Thanks! Your quote request has been sent. We’ll get back to you shortly.");
           closeModal();
           form.reset();
         } else {
-          alert("Sorry, something went wrong. Please try again or WhatsApp us.");
+          alert("Sorry, something went wrong. Please try again or use WhatsApp.");
         }
       } catch (err) {
-        alert("Network issue. Please try again or WhatsApp us.");
+        alert("Network issue. Please try again or use WhatsApp.");
       }
     });
   }
 
-  // ===== Slider (auto + arrows + dots) =====
-  const slidesWrap = qs("#slides");
-  const slider = qs("#slider");
-  const prevBtn = qs("#prevBtn");
-  const nextBtn = qs("#nextBtn");
-  const dotsWrap = qs("#dots");
+  // Testimonials (localStorage)
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewsList = document.getElementById("reviewsList");
+  const clearBtn = document.getElementById("clearReviews");
 
-  if (!slidesWrap || !slider || !dotsWrap) return;
+  const STORAGE_KEY = "jjt_reviews_v1";
 
-  let index = 0;
-  let intervalId;
-
-  const total = () => slidesWrap.children.length;
-
-  function renderDots() {
-    dotsWrap.innerHTML = "";
-    for (let i = 0; i < total(); i++) {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "dotBtn" + (i === index ? " is-active" : "");
-      b.setAttribute("aria-label", `Go to slide ${i + 1}`);
-      b.addEventListener("click", () => {
-        goTo(i);
-        restart();
-      });
-      dotsWrap.appendChild(b);
+  function loadReviews() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    } catch {
+      return [];
     }
   }
 
-  function goTo(i) {
-    const n = total();
-    index = (i + n) % n;
-    slidesWrap.style.transform = `translateX(-${index * 100}%)`;
-    renderDots();
+  function saveReviews(list) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
 
-  function next() { goTo(index + 1); }
-  function prev() { goTo(index - 1); }
+  function starString(n) {
+    n = Number(n) || 0;
+    return "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
+  }
 
-  function start() { intervalId = setInterval(next, 4500); }
-  function stop() { clearInterval(intervalId); }
-  function restart() { stop(); start(); }
+  function renderReviews() {
+    if (!reviewsList) return;
+    const items = loadReviews();
+    if (!items.length) {
+      reviewsList.innerHTML = `<p class="muted">No reviews yet. Be the first to leave one 🙂</p>`;
+      return;
+    }
 
-  if (nextBtn) nextBtn.addEventListener("click", () => { next(); restart(); });
-  if (prevBtn) prevBtn.addEventListener("click", () => { prev(); restart(); });
+    reviewsList.innerHTML = items
+      .slice()
+      .reverse()
+      .map(r => `
+        <div class="review">
+          <div class="review__top">
+            <div class="review__name">${escapeHtml(r.name)}</div>
+            <div class="review__stars" aria-label="${r.rating} stars">${starString(r.rating)}</div>
+          </div>
+          <div class="review__text">${escapeHtml(r.text)}</div>
+          <div class="review__date">${new Date(r.date).toLocaleString()}</div>
+        </div>
+      `).join("");
+  }
 
-  // pause on hover (desktop)
-  slider.addEventListener("mouseenter", stop);
-  slider.addEventListener("mouseleave", start);
+  function escapeHtml(s) {
+    return String(s || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
 
-  renderDots();
-  goTo(0);
-  start();
+  if (reviewForm) {
+    reviewForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("reviewName").value.trim();
+      const text = document.getElementById("reviewText").value.trim();
+      const ratingEl = reviewForm.querySelector("input[name='rating']:checked");
+      const rating = ratingEl ? ratingEl.value : "";
+
+      if (!name || !text || !rating) {
+        alert("Please enter your name, rating, and review.");
+        return;
+      }
+
+      const items = loadReviews();
+      items.push({ name, text, rating: Number(rating), date: new Date().toISOString() });
+      saveReviews(items);
+      reviewForm.reset();
+      renderReviews();
+      alert("Thank you! Your review was added.");
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      if (confirm("Clear all reviews on this device?")) {
+        localStorage.removeItem(STORAGE_KEY);
+        renderReviews();
+      }
+    });
+  }
+
+  renderReviews();
 })();
